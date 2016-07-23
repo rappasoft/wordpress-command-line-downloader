@@ -1,0 +1,16 @@
+#!/usr/bin/env php
+<?php
+
+if (file_exists(__DIR__.'/vendor/autoload.php')) {
+    require __DIR__.'/vendor/autoload.php';
+} else {
+    require __DIR__.'/../../autoload.php';
+}
+
+$app = new Symfony\Component\Console\Application(
+    'Wordpress Command Line Downloader', '1.0'
+);
+
+$app->add(new Rappasoft\WordpressDownloader\NewCommand);
+
+$app->run();
